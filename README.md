@@ -200,6 +200,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 </figure> 
 
 <br>
+<br>
 
 * Second job consist of these steps:
   - check out to the initial branch
@@ -221,6 +222,7 @@ This pipeline is to deploy databricks jobs. It installs databricks cli and run a
 <img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CDPipeline.PNG" alt="CD-Pipeline" width="80%"> 
 <figcaption>CD Pipeline</figcaption>
 </figure> 
+<br>
 <br>
  The way that deploy job python code works is to check the  job json files under workflow/jobs folder and check if they exist in target databricks workspace. If they dont exist it will create them otherwise wont do anything.
 

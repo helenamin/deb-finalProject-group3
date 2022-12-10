@@ -181,7 +181,7 @@ CI/CD pipeline setup has been the challenging part of this project. The tool has
 <h3><b> CI Pipeline </b></h3>
 This pipeline has been created to make sure the code is built and undergoes initial testing. it consist of two parts:
 
-1. Liniting to automatically check the source code for programmatic and stylistic errors.
+1. Linting to automatically check the source code for programmatic and stylistic errors.
 
 <figure> 
 <img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CILinting.PNG" alt="CI-Linting" width="65%"> 

@@ -36,7 +36,7 @@ The dataset contains details on what has been ordered, the status and shipment d
 <!-- WHAT WE USE -->
 <h2 id="Solution Architecture">Solution Architecture</h2>
 <figure>
-<img src="screenshots/ProjectStructure.png" alt="Solution Architecture Diagram" width="70%"> 
+<img src="screenshots/ProjectStructure.png" alt="Solution Architecture Diagram" width="100%"> 
 <figcaption>Created using <a href= "https://app.diagrams.net/">DrawIO</a></figcaption>
 </figure>
 <hr>
@@ -106,14 +106,14 @@ All transformations are done using dbt core hosted on an Azure repository. We ha
 <br>
 There are two sources of data in this dbt project which dbt checks the freshness of data everytime it runs as decsribed below in the picture
 <figure>
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/Sources.PNG" alt="Sources" width="30%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/Sources.PNG" alt="Sources" width="60%"> 
 </figure>
 <br>
 As shown in the picture one of sources is parts table in bronze schema which is an external delta table and is the source of truth for parts API. It means the data in this table is a mirror of parts API source.
 <br>
 The other source is statuses table in bronze schema which initalies from a csv file named statuses.csv. It will be added to the bronze schema once the dbt run
 <figure>
-<img src="screenshots/seed.png" alt="Seed" width="25%"> 
+<img src="screenshots/seed.png" alt="Seed" width="55%"> 
 </figure>
 
 <br>
@@ -142,7 +142,7 @@ There are also some more defined tests applied to some of columns like ‘unique
 Lineage graph below shows dags used in this project:
 
 <figure> 
-<img src="screenshots/lineagegraph.png" alt="Lineage-Graph" width="70%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/lineagegraph.PNG" alt="Lineage-Graph" width="70%"> 
 <figcaption>Lineage-Graph</figcaption>
 </figure>
 
@@ -173,7 +173,7 @@ In this project Databricks Workflow has been used as orchestration tool. IT cons
 CI/CD pipeline setup has been the challenging part of this project. The tool has been used for this part is Azure DevOps pipeline and because the repo also exist on DevOps repo it was not easy to find the right documentation explaining the setup steps clearly. So this part of the project took longer than other parts but eventualy the setup has been done successfully by creating two seperate pipeline, one CI-Pipeline and ther other one CD-Pipeline.
 
 <figure> 
-<img src="screenshots/CICDPipeline.png" alt="CICD-Pipeline" width="40%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CICDPipeline.PNG" alt="CICD-Pipeline" width="40%"> 
 <figcaption>CICD-Pipeline</figcaption>
 </figure>
 </p>
@@ -184,7 +184,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 1. Liniting to automatically check the source code for programmatic and stylistic errors.
 
 <figure> 
-<img src="screenshots/CILinting.png" alt="CI-Linting" width="40%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CILinting.PNG" alt="CI-Linting" width="40%"> 
 <figcaption>Linting</figcaption>
 </figure>
 </p>
@@ -197,7 +197,7 @@ This pipeline has been created to make sure the code is built and undergoes init
   - save it into dbt_manifest artifact
 
 <figure> 
-<img src="screenshots/CIFirstJob.png" alt="CI-First-Job" width="60%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CIFirstJob.PNG" alt="CI-First-Job" width="60%"> 
 <figcaption>CI first job</figcaption>
 </figure> 
 
@@ -208,7 +208,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 
 
 <figure> 
-<img src="screenshots/SlimCI.png" alt="SlimCI" width="50%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/SlimCI.PNG" alt="SlimCI" width="50%"> 
 <figcaption>Dbt Slim CI</figcaption>
 </figure>                
 
@@ -218,14 +218,14 @@ This pipeline has been created to make sure the code is built and undergoes init
 This pipeline is to deploy databricks jobs. It installs databricks cli and run a python code which creates the jobs not exist in target.
 
 <figure> 
-<img src="screenshots/CDPipeline.png" alt="CD-Pipeline" width="58%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CDPipeline.PNG" alt="CD-Pipeline" width="58%"> 
 <figcaption>CD Pipeline</figcaption>
 </figure> 
 <br>
  The way that deploy job python code works is to check the  job json files under workflow/jobs folder and check if they exist in target databricks workspace. If they dont exist it will create them otherwise wont do anything.
 
  <figure> 
-<img src="screenshots/DeployJob.png" alt="Deploy-Job" width="50%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/DeployJob.PNG" alt="Deploy-Job" width="50%"> 
 <figcaption>Deploy-Job python code</figcaption>
 </figure> 
 

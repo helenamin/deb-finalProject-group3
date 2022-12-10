@@ -236,7 +236,7 @@ This pipeline is to deploy databricks jobs. It installs databricks cli and run a
 <!-- RESULTS AND DISCUSSION -->
 
 
-<h2 id="discussion">Discussion, Lesson Learnt and Future Improvement</h2>
+<h2 id="discussion">Lesson Learnt and Future Improvement</h2>
 
 <p align="justify">
 

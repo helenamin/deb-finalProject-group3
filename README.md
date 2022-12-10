@@ -87,15 +87,14 @@ This project consist of these sections and tools:
 <hr style="background:#ADD8E6;">
 <!-- THE WHOLE PROCESS OF THE PROJECT -->
 <br>
-<h2 id="theprocess">PROCESS OF THE PROJECT</h2>
-<hr>
+<h1 id="theprocess">PROCESS OF THE PROJECT</h1>
+
 <h2 id="data-int">Data Integration</h2>
 <p align="justify"> 
 
 A python code developed in databricks notebook to read data from company’s parts API. It’s been designed to read the last 2 days data from the API. Then it loads it into a parquet file in raw zone folder named as ingestion timestamp. Next step is to read the data from raw zone into a data frame and merge (UPSERT) it into the Parts table in bronze schema. Doing this, parts table in bronze zone is a mirror of source data.
 
-<hr>
-
+<br>
 
 <h2 id="data-trans">Data Transformation</h2>
 
@@ -144,7 +143,7 @@ Lineage graph below shows dags used in this project:
 <figcaption>Lineage-Graph</figcaption>
 </figure>
 
-<hr>
+<br>
 
 <h2 id="data-ochestration">Data Ochestration</h2>
 <p align="justify"> 
@@ -162,7 +161,6 @@ In this project Databricks Workflow has been used as orchestration tool. It incl
 </figure>
 </p>
 
-<hr>
 <br>
 
 <h2 id="CI/CD">CI/CD (Continious Integration / Continious Deployment)</h2>

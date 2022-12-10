@@ -106,7 +106,7 @@ All transformations are done using dbt core hosted on an Azure repository. We ha
 <br>
 There are two sources of data in this dbt project which dbt checks the freshness of data everytime it runs as decsribed below in the picture
 <figure>
-<img src="screenshots/Sources.png" alt="Sources" width="30%"> 
+<img src="screenshots/sources.png" alt="Sources" width="30%"> 
 </figure>
 <br>
 As shown in the picture one of sources is parts table in bronze schema which is an external delta table and is the source of truth for parts API. It means the data in this table is a mirror of parts API source.
@@ -142,7 +142,7 @@ There are also some more defined tests applied to some of columns like ‘unique
 Lineage graph below shows dags used in this project:
 
 <figure> 
-<img src="screenshots/lineagegraph.PNG" alt="Lineage-Graph" width="70%"> 
+<img src="screenshots/lineagegraph.png" alt="Lineage-Graph" width="70%"> 
 <figcaption>Lineage-Graph</figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ In this project Databricks Workflow has been used as orchestration tool. IT cons
 * to monitor dbt transformations and get notifed if any failure happens
 
 <figure> 
-<img src="screenshots/dbworkflow.PNG" alt="Darabricks Workflow" width="70%"> 
+<img src="screenshots/dbworkflow.png" alt="Darabricks Workflow" width="70%"> 
 <figcaption>Darabricks Workflow Orchastration</figcaption>
 </figure>
 </p>
@@ -173,7 +173,7 @@ In this project Databricks Workflow has been used as orchestration tool. IT cons
 CI/CD pipeline setup has been the challenging part of this project. The tool has been used for this part is Azure DevOps pipeline and because the repo also exist on DevOps repo it was not easy to find the right documentation explaining the setup steps clearly. So this part of the project took longer than other parts but eventualy the setup has been done successfully by creating two seperate pipeline, one CI-Pipeline and ther other one CD-Pipeline.
 
 <figure> 
-<img src="screenshots/CICDPipeline.PNG" alt="CICD-Pipeline" width="40%"> 
+<img src="screenshots/CICDPipeline.png" alt="CICD-Pipeline" width="40%"> 
 <figcaption>CICD-Pipeline</figcaption>
 </figure>
 </p>
@@ -184,7 +184,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 1. Liniting to automatically check the source code for programmatic and stylistic errors.
 
 <figure> 
-<img src="screenshots/CILinting.PNG" alt="CI-Linting" width="40%"> 
+<img src="screenshots/CILinting.png" alt="CI-Linting" width="40%"> 
 <figcaption>Linting</figcaption>
 </figure>
 </p>

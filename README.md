@@ -142,7 +142,7 @@ There are also some more defined tests applied to some of columns like ‘unique
 Lineage graph below shows dags used in this project:
 
 <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/lineagegraph.PNG" alt="Lineage-Graph" width="70%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/lineagegraph.PNG" alt="Lineage-Graph" width="100%"> 
 <figcaption>Lineage-Graph</figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ In this project Databricks Workflow has been used as orchestration tool. IT cons
 * to monitor dbt transformations and get notifed if any failure happens
 
 <figure> 
-<img src="screenshots/dbworkflow.png" alt="Darabricks Workflow" width="70%"> 
+<img src="screenshots/dbworkflow.png" alt="Darabricks Workflow" width="100%"> 
 <figcaption>Darabricks Workflow Orchastration</figcaption>
 </figure>
 </p>
@@ -173,7 +173,7 @@ In this project Databricks Workflow has been used as orchestration tool. IT cons
 CI/CD pipeline setup has been the challenging part of this project. The tool has been used for this part is Azure DevOps pipeline and because the repo also exist on DevOps repo it was not easy to find the right documentation explaining the setup steps clearly. So this part of the project took longer than other parts but eventualy the setup has been done successfully by creating two seperate pipeline, one CI-Pipeline and ther other one CD-Pipeline.
 
 <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CICDPipeline.PNG" alt="CICD-Pipeline" width="40%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CICDPipeline.PNG" alt="CICD-Pipeline" width="100%"> 
 <figcaption>CICD-Pipeline</figcaption>
 </figure>
 </p>
@@ -184,7 +184,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 1. Liniting to automatically check the source code for programmatic and stylistic errors.
 
 <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CILinting.PNG" alt="CI-Linting" width="40%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CILinting.PNG" alt="CI-Linting" width="65%"> 
 <figcaption>Linting</figcaption>
 </figure>
 </p>
@@ -197,7 +197,7 @@ This pipeline has been created to make sure the code is built and undergoes init
   - save it into dbt_manifest artifact
 
 <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CIFirstJob.PNG" alt="CI-First-Job" width="60%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CIFirstJob.PNG" alt="CI-First-Job" width="80%"> 
 <figcaption>CI first job</figcaption>
 </figure> 
 
@@ -208,7 +208,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 
 
 <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/SlimCI.PNG" alt="SlimCI" width="50%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/SlimCI.PNG" alt="SlimCI" width="75%"> 
 <figcaption>Dbt Slim CI</figcaption>
 </figure>                
 
@@ -218,14 +218,14 @@ This pipeline has been created to make sure the code is built and undergoes init
 This pipeline is to deploy databricks jobs. It installs databricks cli and run a python code which creates the jobs not exist in target.
 
 <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CDPipeline.PNG" alt="CD-Pipeline" width="58%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CDPipeline.PNG" alt="CD-Pipeline" width="80%"> 
 <figcaption>CD Pipeline</figcaption>
 </figure> 
 <br>
  The way that deploy job python code works is to check the  job json files under workflow/jobs folder and check if they exist in target databricks workspace. If they dont exist it will create them otherwise wont do anything.
 
  <figure> 
-<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/DeployJob.PNG" alt="Deploy-Job" width="50%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/DeployJob.PNG" alt="Deploy-Job" width="75%"> 
 <figcaption>Deploy-Job python code</figcaption>
 </figure> 
 

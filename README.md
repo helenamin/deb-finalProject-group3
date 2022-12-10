@@ -153,7 +153,7 @@ Lineage graph below shows dags used in this project:
 In this project Databricks Workflow has been used as orchestration tool. IT consist of two parts:
 
 1. API ingestion which is a task of running a python notebook which reads the last 2 days of from API(incremental extraction), saves the result as parquet file in a timestamp folder in raw zone in blob storage, then reads the data from raw zone and merge it to existing parts table in bronze schema.
-2. Dbt core project to be run as job task and for this purpose dbt task in databricks job has been used. THis helps:
+2. Dbt core project to be run as job task and for this purpose dbt task in databricks job has been used. This helps:
 
 * to use dbt project with other tasks and to automate dbt task
 * to monitor dbt transformations and get notifed if any failure happens

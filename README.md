@@ -106,7 +106,7 @@ All transformations are done using dbt core hosted on an Azure repository. We ha
 <br>
 There are two sources of data in this dbt project which dbt checks the freshness of data everytime it runs as decsribed below in the picture
 <figure>
-<img src="screenshots/sources.png" alt="Sources" width="30%"> 
+<img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/Sources.PNG" alt="Sources" width="30%"> 
 </figure>
 <br>
 As shown in the picture one of sources is parts table in bronze schema which is an external delta table and is the source of truth for parts API. It means the data in this table is a mirror of parts API source.

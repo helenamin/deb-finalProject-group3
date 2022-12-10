@@ -1,0 +1,139 @@
+# data quality test (Part of the CI)
+trigger: none
+#  branches:
+#    include:
+#      - main
+#  paths:
+#   include:
+#     - WT-DBTDemoPOC/*
+
+resources:
+  repositories:
+  - repository: main_branch
+    type: git
+    name: WT-DBTDemoPOC
+    ref: main
+
+pool:
+  vmImage: 'ubuntu-latest' #might need to be Linux or Ubuntu
+
+#Group name in Library that host all the ENV keys for CI & CD
+variables:
+ - group: dbt_POC 
+
+stages:
+  - stage: CI
+    displayName: 'CI Pipeline'
+    jobs:
+    - job: Publish_Main_Manifest
+      steps:
+        - checkout: git://WesTrac-CaptisDevelopment/WT-DBTDemoPOC
+          path: main
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: '3.9'
+            addToPath: true
+            architecture: 'x64'
+        - task: Bash@3
+          displayName: Install Dependencies
+          inputs:
+            targetType: inline
+            script: |
+              python -m pip install --upgrade pip
+              pip install -r dbt_transformation/requirements.txt
+        - task: Bash@3
+          displayName: Run dbt deps
+          inputs:
+            targetType: inline
+            script: |
+              cd dbt_transformation
+              dbt deps          
+        - task: Bash@3
+          displayName: Generate dbt manifest
+          inputs:
+            targetType: inline
+            script: |
+              cd dbt_transformation
+              dbt deps             
+              dbt compile --target dev
+          env:
+            DB_HOST: '$(DB_HOST)'
+            DB_TOKEN: '$(DB_TOKEN)'
+            DB_HTTP_PATH: '$(DB_HTTP_PATH)'
+       
+        - task: PublishBuildArtifacts@1
+          inputs:
+            pathToPublish: $(System.DefaultWorkingDirectory)/dbt_transformation/target/manifest.json
+            artifactName: dbt_manifest
+    
+    - job: Integration_Testing
+      dependsOn: publish_main_manifest
+      steps:
+        - checkout: self
+        # The following part checks for what Triggers the pipeline, 
+        # does nothing if committing to Main and gets the Pull Request ID and store it as a variable.
+        - script: |
+            if [ "$(Build.SourceBranchName)" == "main" ]; then
+              echo "Versioning for Main build"
+            elif [ -n "$(System.PullRequest.PullRequestId)" ]; then
+              echo "Versioning for PR build"
+              echo $(System.PullRequest.PullRequestId)
+              GH_REF=$(System.PullRequest.PullRequestId)
+              echo "##vso[task.setvariable variable=GH_REF]$GH_REF"                
+            else
+              echo "Branch is not for master nor a pull request"
+              exit 1
+            fi
+            echo $GH_REF
+          displayName: Check Trigger and gets Pull Request Number
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: '3.9'
+            addToPath: true
+            architecture: 'x64'
+        - task: Bash@3
+          displayName: Install Dependencies
+          inputs:
+            targetType: inline
+            script: |
+              python -m pip install --upgrade pip
+              pip install -r dbt_transformation/requirements.txt
+        - task: Bash@3
+          displayName: Run dbt deps
+          inputs:
+            targetType: inline
+            script: |
+              cd dbt_transformation
+              dbt deps
+        - task: Bash@3
+          displayName: Perform SQL linting
+          inputs:
+            targetType: inline
+            script: |
+              sqlfluff lint dbt_transformation
+          env:
+            DB_HOST: '$(DB_HOST)'
+            DB_TOKEN: '$(DB_TOKEN)'
+            DB_HTTP_PATH: '$(DB_HTTP_PATH)'
+
+        - task: DownloadBuildArtifacts@1
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'dbt_manifest'
+            downloadPath: '$(System.DefaultWorkingDirectory)/dbt_transformation'
+
+        - task: Bash@3
+          displayName: Perform dbt run and test state modified 
+          inputs:            
+            targetType: inline         
+            script: |
+              cd dbt_transformation
+              dbt deps
+              dbt run -m state:modified+1 --defer --state dbt_manifest --target ci
+              dbt test -m state:modified+1 --defer --state dbt_manifest --target ci
+          env:
+            DB_HOST: '$(DB_HOST)'
+            DB_TOKEN: '$(DB_TOKEN)'
+            DB_HTTP_PATH: '$(DB_HTTP_PATH)'
+            GH_REF: $GH_REF

@@ -1,0 +1,7 @@
+version: 2
+
+seeds:
+  - name: statuses
+    config:
+      database: hive_metastore
+      schema: dbt_bronze

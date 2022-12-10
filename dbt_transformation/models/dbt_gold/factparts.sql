@@ -1,0 +1,59 @@
+{{
+    config(
+        materialized='table',
+        database='hive_metastore',
+        schema='dbt_gold'
+    )
+}}
+select
+    p.transportmode,
+    p.trackingnumber,
+    p.sourcedpartnumber,
+    s.sequence as status_code,
+    p.sourceditemquantity,
+    p.sourcecustomercode,
+    p.shippedpgidate,
+    p.shipid,
+    p.reserveprimpso,
+    p.releaseitemquantity,
+    p.pso,
+    p.polexternalid,
+    p.pendingitemquantity,
+    p.partnumber,
+    p.ordertype,
+    p.orderlinename,
+    p.orderentrydate,
+    p.orderedquantity,
+    p.modifieddatetime,
+    p.materialrequestquantity,
+    p.lastactivitydatetime,
+    p.istransferorder,
+    p.istrackingactive,
+    p.ispurged,
+    p.invoicereferencenumber,
+    p.invoicenumber,
+    p.invoiceditemquantity,
+    p.hunumber,
+    p.facilitypso,
+    p.facilityname,
+    p.estimatedshipdate,
+    p.customersupplieditemnumber,
+    p.customerreference,
+    p.dealercode,
+    p.crmbillnumber,
+    p.createddatetime,
+    p.containernumber,
+    p.carriercode,
+    p.airwaybillnumber,
+    p.catorderstatus,
+    p.customerstoragelocation,
+    p.keycatcustomercode,
+    p.profile,
+    p.relatedcustomer,
+    p.shipbydate,
+    p.insertdatetime,
+    p.changeddatetime
+from
+    {{ ref('parts') }} as p
+left join {{ ref('status') }} as s
+    on p.status = s.status

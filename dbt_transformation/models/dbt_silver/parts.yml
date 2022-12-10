@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: parts
+    columns:
+      - name: shippedPGIDate
+        tests:
+          - date_format
+      - name: orderEntrydate
+        tests:
+          - date_format
+      - name: estimatedShipDate
+        tests:
+          - date_format
+      - name: shipbyDate
+        tests:
+          - date_format          
+      - name: isPurged
+        tests:
+          - not_null                              
+      - name: pso
+        tests:
+          - length:
+              val: 8
+      - name: transportMode
+      - name: trackingNumber
+      - name: status
+      - name: sourcedPartNumber
+      - name: sourcedItemQuantity
+      - name: sourceCustomerCode
+      - name: shipId
+      - name: reservePrimPSO                    
+      - name: releaseItemQuantity
+      - name: polExternalID
+        tests:
+          - not_null    
+          - unique
+      - name: pendingItemQuantity
+      - name: partNumber
+      - name: orderType
+      - name: orderlineName
+      - name: orderedQuantity 
+      - name: modifiedDateTime
+      - name: materialRequestQuantity
+      - name: lastActivityDateTime
+      - name: isTransferOrder
+      - name: isTrackingActive
+      - name: isPurged
+      - name: invoiceReferenceNumber
+      - name: invoiceNumber
+      - name: invoicedItemQuantity
+      - name: huNumber
+      - name: facilityPSO
+      - name: facilityName
+      - name: customerSuppliedItemNumber
+      - name: customerReference
+        tests:
+            - string_test
+      - name: dealercode
+      - name: crmBillNumber
+      - name: createdDateTime
+      - name: containerNumber
+      - name: carrierName
+        tests:
+            - string_test
+      - name: carrierCode
+      - name: airwayBillNumber
+      - name: catOrderStatus
+      - name: customerStorageLocation
+        tests:
+            - string_test
+      - name: keyCatCustomerCode
+      - name: profile
+      - name: relatedCustomer
+      - name: insertDateTime
+      - name: changedDateTime                           

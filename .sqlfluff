@@ -1,0 +1,12 @@
+[sqlfluff]
+templater = dbt
+dialect = databricks
+exclude_rules = L016,L028,L027,L031,L046,L029
+
+[sqlfluff:templater:dbt]
+project_dir = dbt_transformation
+profiles_dir = dbt_transformation
+target = ci
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = Tru

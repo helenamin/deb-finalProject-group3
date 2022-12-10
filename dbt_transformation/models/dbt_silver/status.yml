@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: status
+    columns:
+      - name: sequence
+      - name: status

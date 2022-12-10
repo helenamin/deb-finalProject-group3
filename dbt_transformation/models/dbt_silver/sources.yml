@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: dbt_bronze
+    database: hive_metastore
+    schema: dbt_bronze
+    tables:
+      - name: parts
+      - name: statuses
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+    
+    loaded_at_field: insertDateTime

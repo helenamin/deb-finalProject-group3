@@ -1,0 +1,28 @@
+# CD pipeline to deploy Databricks Job 
+
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+ - group: dbt_POC #Reading ENV Variables from the library
+
+stages:
+- stage: CD
+  displayName: 'CD Pipeline'
+  jobs: 
+  - job: Install_Dependencies_And_Run_Job_Validation
+    steps:
+      - task: Bash@3
+        displayName: "Install Databricks CLI and Run Job Validation"
+        inputs:
+          targetType: 'inline'
+          script: |
+            pip install databricks-cli
+            pip install python-dotenv
+            cd workflow
+            python deploy_jobs.py
+        env:
+          DATABRICKS_HOST: '$(DATABRICKS_HOST)'
+          DATABRICKS_TOKEN: '$(DATABRICKS_TOKEN)'

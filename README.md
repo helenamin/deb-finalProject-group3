@@ -34,6 +34,7 @@ The dataset contains details on what has been ordered, the status and shipment d
 <br>
 <hr style="background:#ADD8E6;">
 <!-- WHAT WE USE -->
+<br>
 <h2 id="Solution Architecture">Solution Architecture</h2>
 <figure>
 <img src="screenshots/ProjectStructure.png" alt="Solution Architecture Diagram" width="100%"> 
@@ -184,6 +185,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 <figcaption>Linting</figcaption>
 </figure>
 </p>
+<br>
 
 2. Slim CI which enabled us to only run certain portions of our code tree based on the activity of our last job run. It does this through the creation of a manifest that it used to track various things about the last run. For this purpose, two jobs had to defined:
 
@@ -196,6 +198,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 <img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CIFirstJob.PNG" alt="CI-First-Job" width="80%"> 
 <figcaption>CI first job</figcaption>
 </figure> 
+<br>
 
 * Second job consist of these steps:
   - check out to the initial branch
@@ -205,7 +208,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 
 <figure> 
 <img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/SlimCI.PNG" alt="SlimCI" width="75%"> 
-<figcaption>Dbt Slim CI</figcaption>
+<figcaption>dbt Slim CI</figcaption>
 </figure>                
 
 <br>

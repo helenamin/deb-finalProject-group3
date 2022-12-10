@@ -1,5 +1,5 @@
 <a id="top"></a>
-<h1 align="left"> End-to-end Parts Visibility solution</h1>
+<h1 align="left"> End-to-End Parts Visibility Solution</h1>
 
 
 <!-- TABLE OF CONTENTS -->

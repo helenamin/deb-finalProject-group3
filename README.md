@@ -18,7 +18,7 @@
         <li><a href="#CI/CD">CI/CD</a></li>
       </ul>
     </li>
-    <li><a href="#discussion">Discussion, Lesson Learnt and Future Improvement</a></li>
+    <li><a href="#discussion">Lesson Learnt and Future Improvement</a></li>
     <li><a href="#contributors">Contributors & Contributions</a></li>
   </ol>
 </details>
@@ -89,11 +89,9 @@ This project consist of these sections and tools:
 <br>
 <h2 id="theprocess">PROCESS OF THE PROJECT</h2>
 <hr>
-<br>
 <h2 id="data-int">Data Integration</h2>
 <p align="justify"> 
 
-<br>
 A python code developed in databricks notebook to read data from company’s parts API. It’s been designed to read the last 2 days data from the API. Then it loads it into a parquet file in raw zone folder named as ingestion timestamp. Next step is to read the data from raw zone into a data frame and merge (UPSERT) it into the Parts table in bronze schema. Doing this, parts table in bronze zone is a mirror of source data.
 
 <hr>

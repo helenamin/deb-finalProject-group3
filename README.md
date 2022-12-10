@@ -287,7 +287,7 @@ This pipeline is to deploy databricks jobs. It installs databricks cli and run a
 <tr>
  <td> <b>Puneet Verma</b></td>
 <td><a href="https://github.com/puneetverma">puneetverma</a></td>
-<td>dbt Transformation, CI , ML Model</td>
+<td>dbt Transformation, CI </td>
 </tr>
 
 </table>

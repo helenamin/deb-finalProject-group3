@@ -198,6 +198,7 @@ This pipeline has been created to make sure the code is built and undergoes init
 <img src="https://github.com/helenamin/deb-finalProject-group3/blob/main/screenshots/CIFirstJob.PNG" alt="CI-First-Job" width="80%"> 
 <figcaption>CI first job</figcaption>
 </figure> 
+
 <br>
 
 * Second job consist of these steps:

@@ -263,6 +263,8 @@ The FactParts table is consumed by a Machine Learning model to predict the numbe
   <li>To include New Column detection as current iteration of Data Ingestion does not check for New Columns.  </li>
   <li>Current CD only checks and deploy by Job name, hence if there are same job settings with a different name, the same "jobs" will be created in Databricks Workflow.  </li>
   <li>Future iteration to include settings matching  so no same "jobs" will be created, only update if neccesary.  </li>
+  <li>Implement the Continuous Training part of the Machine Leaning pipeline to monitor the performance of the ML model and check for any Data and Model Drifts.  </li>
+
 </ul>
 
 </p>

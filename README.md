@@ -16,6 +16,7 @@
         <li><a href="#data-trans">Data Transformation</a></li>
         <li><a href="#data-ochestration">Data Ochestration</a></li>
         <li><a href="#CI/CD">CI/CD</a></li>
+        <li><a href="#ML-Model">ML Model</a></li>
       </ul>
     </li>
     <li><a href="#discussion">Lesson Learnt and Future Improvement</a></li>
@@ -231,6 +232,11 @@ This pipeline is to deploy databricks jobs. It installs databricks cli and run a
 <figcaption>Deploy-Job python code</figcaption>
 </figure> 
 
+<h2 id="ML-Model">ML Model</h2>
+<p align="justify"> 
+
+The FactParts table is consumed by a Machine Learning model to predict the number of days for the parts to be delivered. The model makes daily batch inference after the daily DBT job finishes. The predictions are stored incrementally in a table so that it can be analysed or further consumed using a Power Bi report.  
+
 
 
 <br>
@@ -277,19 +283,19 @@ This pipeline is to deploy databricks jobs. It installs databricks cli and run a
 <tr>
 <td> <b>Fang Xuan Foo</b></td>
 <td><a href="https://github.com/foofx88">foofx88</a></td>
-<td>API Ingestion, dbt Transformation , CI/CD</td>
+<td>API Ingestion, dbt Transformation , CI Pipeline, CD Pipeline</td>
 </tr>
 
 <tr>
  <td> <b>Helen Amin</b> </td>
   <td><a href="https://github.com/helenamin">helenamin</a> </td>
-  <td>dbt Transformation, CI , Documentation</td>
+  <td>dbt Transformation, Orchestration, CI Pipeline, Documentation</td>
  </tr>
 
 <tr>
  <td> <b>Puneet Verma</b></td>
 <td><a href="https://github.com/puneetverma">puneetverma</a></td>
-<td>dbt Transformation, CI </td>
+<td>dbt Transformation, CI Pipeline, ML Model</td>
 </tr>
 
 </table>

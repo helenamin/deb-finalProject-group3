@@ -9,6 +9,7 @@
             ],
             "no_alert_for_skipped_runs": false
         },
+        "webhook_notifications": {},
         "timeout_seconds": 0,
         "schedule": {
             "quartz_cron_expression": "32 20 1 * * ?",
@@ -56,6 +57,21 @@
                     "source": "WORKSPACE"
                 },
                 "job_cluster_key": "Shared_job_cluster",
+                "timeout_seconds": 0,
+                "email_notifications": {}
+            },
+            {
+                "task_key": "Partsviz_ML_Inference",
+                "depends_on": [
+                    {
+                        "task_key": "dbt_demo_partsviz"
+                    }
+                ],
+                "notebook_task": {
+                    "notebook_path": "/Repos/admpuneetv@westrac.com.au/WT-DBTDemoPOC/MachineLearning/Partsviz_Inference",
+                    "source": "WORKSPACE"
+                },
+                "existing_cluster_id": "1211-021926-ryoim3h",
                 "timeout_seconds": 0,
                 "email_notifications": {}
             }
